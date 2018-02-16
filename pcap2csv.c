@@ -4,6 +4,7 @@
  * addresses from the packet capture data to stdout.
  */
 
+#include <assert.h>
 #include <stdio.h>
 #include <pcap.h>
 #include <string.h>
@@ -71,6 +72,8 @@ print_pkt_fields(u_char *user, const struct pcap_pkthdr *hdr, const u_char *data
   int ihl = 0;
   int tot_len_ip = 0;
   int offset = 0;
+
+  assert(user == NULL);
 
   if (hdr->caplen < 14) {
     /* captured data is not long enough to extract mac address */
