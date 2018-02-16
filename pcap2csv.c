@@ -31,7 +31,7 @@ main(int argc, char *argv[])
 
 	if (argc < 2) {
 		fputs("pcap2csv filename\n", stderr);
-		exit(2);
+		exit(EXIT_FAILURE);
 	}
 
 	filename = argv[1];
@@ -44,7 +44,7 @@ main(int argc, char *argv[])
 		fprintf(stderr,
 		    "Error in opening savefile, %s, for reading: %s\n",
 		    filename, errbuf);
-		exit(2);
+		exit(EXIT_FAILURE);
 	}
 
 	/*
@@ -62,7 +62,7 @@ main(int argc, char *argv[])
 		snprintf(prestr, sizeof prestr,
 		    "Error reading packets from filename %s", filename);
 		pcap_perror(p,prestr);
-		exit(4);
+		exit(EXIT_FAILURE);
 	}
 
 	/*
