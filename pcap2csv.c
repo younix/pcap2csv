@@ -69,8 +69,8 @@ main(int argc, char *argv[])
 	 * Close the packet capture device and free the memory used by the
 	 * packet capture descriptor.
 	 */
-
 	pcap_close(p);
+
 	return 0;
 }
 
