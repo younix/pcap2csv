@@ -85,8 +85,8 @@ print_pkt_fields(u_char *user, const struct pcap_pkthdr *hdr, const u_char *data
 
 	if (hdr->caplen < 14) {
 		/* captured data is not long enough to extract mac address */
-		fprintf(stderr, "Error: not enough captured packet data present"
-		    " to extract MAC addresses.\n");
+		fputs("Error: not enough captured packet data present to "
+		    "extract MAC addresses.\n", stderr);
 		return;
 	}
 
@@ -106,6 +106,6 @@ print_pkt_fields(u_char *user, const struct pcap_pkthdr *hdr, const u_char *data
 		print_tcp_fields(data, offset);
 	}
 
-	printf("\n");
+	putchar('\n');
 	packets++;	/* keep a running total of number of packets read in */
 }
