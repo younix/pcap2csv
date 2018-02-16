@@ -26,8 +26,12 @@ main(int argc, char **argv)
   char errbuf[PCAP_ERRBUF_SIZE];  /* buffer to hold error text */
   char prestr[80];         /* prefix string for errors from pcap_perror */
 
-  if (argc >= 2)
-    filename = argv[1];
+  if (argc < 2) {
+    fputs("pcap2csv filename\n", stderr);
+    exit(2);
+  }
+
+  filename = argv[1];
 
   /*
    * Open a file containing packet capture data. This must be called before
