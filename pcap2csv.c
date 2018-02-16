@@ -16,7 +16,7 @@
 #include "ip.h"
 #include "tcp.h"
 
-int packets = 0;   /* running count of packets read in */
+int packets = 0;	/* running count of packets read in */
 
 void print_pkt_fields(u_char *user, const struct pcap_pkthdr *hdr,
     const u_char *data);
@@ -71,7 +71,7 @@ main(int argc, char *argv[])
 	 */
 	pcap_close(p);
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void
