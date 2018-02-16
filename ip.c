@@ -3,14 +3,14 @@
 
 void print_version_ip(const u_char * data, int offset)
 {
-  int mask = 0b00001111;
+  int mask = 0x0f;
   int value = data[offset] >> 4;
   printf("\"version, 0x%01x\",", (mask & value));
 }
 
 void print_ihl(const u_char * data, int offset)
 {
-  int mask = 0b00001111;
+  int mask = 0x0f;
   printf("\"ihl, %d\",", (mask & data[offset]) * 4);
 }
 
@@ -52,7 +52,7 @@ void print_id_ip(const u_char * data, int offset)
 
 void print_flags_ip(const u_char * data, int offset)
 {
-  int mask = 0b00000111;
+  int mask = 0x07;
   int value = data[offset+6] >> 5;
   printf("\"flags, 0x%01x\",", (mask & value));
 }
