@@ -68,11 +68,11 @@ main(int argc, char **argv)
 void
 print_pkt_fields(u_char *user, const struct pcap_pkthdr *hdr, const u_char *data)
 {
-  int ihl;
-  int tot_len_ip;
+  int ihl = 0;
+  int tot_len_ip = 0;
   int offset = 0;
 
-  if (hdr->caplen < 0) {
+  if (hdr->caplen < 14) {
     /* captured data is not long enough to extract mac address */
     fprintf(stderr,
 	    "Error: not enough captured packet data present to extract MAC addresses.\n");
