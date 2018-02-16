@@ -1,17 +1,20 @@
+CC ?= cc
+CFLAGS = -std=c99 -pedantic -Wall -Wextra -g
+
 pcap2csv: pcap2csv.o eth2.o ip.o tcp.o
-	gcc -Wall -g -o pcap2csv pcap2csv.o eth2.o ip.o tcp.o -l pcap
+	$(CC) -o pcap2csv pcap2csv.o eth2.o ip.o tcp.o -l pcap
 
 pcap2csv.o: pcap2csv.c eth2.h ip.h tcp.h
-	gcc -Wall -g -c pcap2csv.c
+	$(CC) $(CFLAGS) -c pcap2csv.c
 
 ip.o: ip.c
-	gcc -Wall -g -c ip.c
+	$(CC) $(CFLAGS) -c ip.c
 
 eth2.o: eth2.c
-	gcc -Wall -g -c eth2.c
+	$(CC) $(CFLAGS) -c eth2.c
 
 tcp.o: tcp.c
-	gcc -Wall -g -c tcp.c
+	$(CC) $(CFLAGS) -c tcp.c
 
 .PHONY: clean
 clean:
