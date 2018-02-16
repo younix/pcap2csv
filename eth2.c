@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <sys/types.h>
+#include <stdio.h>
 
 void print_dst_mac(const u_char * data, int offset)
 {

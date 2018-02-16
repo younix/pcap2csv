@@ -5,11 +5,13 @@
  */
 
 #include <assert.h>
-#include <stdio.h>
-#include <pcap.h>
-#include <string.h>
-#include <stdlib.h>
 #include <libgen.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <pcap.h>
+
 #include "eth2.h"
 #include "ip.h"
 #include "tcp.h"

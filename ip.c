@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <sys/types.h>
+#include <stdio.h>
 
 void print_version_ip(const u_char * data, int offset)
 {
