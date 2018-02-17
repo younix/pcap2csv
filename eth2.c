@@ -5,7 +5,7 @@ struct frame {
 	uint8_t dst[6];
 	uint8_t src[6];
 	/* TODO: handl optional Q-Tag */
-	uint32_t type;
+	uint16_t type;
 };
 
 void
@@ -21,5 +21,5 @@ print_ether_fields(const u_char *data, int offset)
 	    frame->src[0], frame->src[1], frame->src[2],
 	    frame->src[3], frame->src[4], frame->src[5]);
 
-	printf("\"ether_type, 0x%04x\",", frame->type);
+	printf("\"ether_type, 0x%04x\",", ntohs(frame->type));
 }
